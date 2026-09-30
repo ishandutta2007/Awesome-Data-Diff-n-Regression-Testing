@@ -64,7 +64,7 @@ This repository tracks leading **SaaS platforms** and **open-source projects** d
 
 Below are top-tier open-source libraries and frameworks for building self-hosted data diffing, schema assertion, and pipeline regression testing suites.
 
-| Rank | Project & Repository | Star Count | Key Capabilities & CI/CD Use Cases |
+| Rank | Project & Repository | Stars_Count | Key Capabilities & CI/CD Use Cases |
 | :---: | :--- | :---: | :--- |
 | 1 | **[dbt Core](https://github.com/dbt-labs/dbt-core)**<br/>[<img src="https://img.shields.io/github/stars/dbt-labs/dbt-core?style=social&color=white" alt="dbt-core stars"/>](https://github.com/dbt-labs/dbt-core/stargazers) | ⭐ **13,948** | Data transformation engine featuring native unit testing, custom SQL assertions, uniqueness/relationship checks, and dbt-expectations package ecosystem. |
 | 2 | **[Great Expectations](https://github.com/great-expectations/great_expectations)**<br/>[<img src="https://img.shields.io/github/stars/great-expectations/great_expectations?style=social&color=white" alt="great_expectations stars"/>](https://github.com/great-expectations/great_expectations/stargazers) | ⭐ **11,851** | Leading python data validation framework—define expressive expectation suites, automatically profile data, and run quality gates in CI/CD. |
@@ -122,7 +122,7 @@ If you find this curated list valuable for your analytics engineering workflows 
 ## ⚠️ Disclaimer
 
 - This is a **community-curated** repository provided for informational purposes.
-- Product valuations, pricing tiers, and star counts are regularly updated but subject to change by respective vendor organizations.
+- Product valuations, pricing tiers, and Stars_Counts are regularly updated but subject to change by respective vendor organizations.
 - Always perform your own benchmark testing and security audits before integrating third-party tools into production data stacks.
 
 ---
