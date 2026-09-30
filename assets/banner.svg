@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="50%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+
+    <linearGradient id="title-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#58a6ff"/>
+      <stop offset="50%" stop-color="#bc8cff"/>
+      <stop offset="100%" stop-color="#3fb950"/>
+    </linearGradient>
+
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#21262d" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#161b22" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 800; font-size: 42px; fill: url(#title-grad); }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 500; font-size: 20px; fill: #8b949e; }
+      .badge-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-weight: 600; font-size: 14px; fill: #c9d1d9; }
+      .node-label { font-family: monospace; font-size: 12px; fill: #58a6ff; }
+      
+      @keyframes floatPulse {
+        0% { transform: translateY(0px) scale(1); opacity: 0.4; }
+        50% { transform: translateY(-8px) scale(1.03); opacity: 0.8; }
+        100% { transform: translateY(0px) scale(1); opacity: 0.4; }
+      }
+      
+      @keyframes dashFlow {
+        0% { stroke-dashoffset: 40; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(360px); }
+      }
+
+      .animated-wave {
+        animation: floatPulse 6s ease-in-out infinite;
+      }
+      
+      .animated-flow {
+        stroke-dasharray: 8, 8;
+        animation: dashFlow 2s linear infinite;
+      }
+    </style>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1200" height="360" rx="16" fill="url(#bg-grad)" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Dynamic Background Grid Patterns (Behind Text) -->
+  <g opacity="0.15">
+    <path d="M 0 60 L 1200 60 M 0 120 L 1200 120 M 0 180 L 1200 180 M 0 240 L 1200 240 M 0 300 L 1200 300" stroke="#58a6ff" stroke-width="1"/>
+    <path d="M 150 0 L 150 360 M 300 0 L 300 360 M 450 0 L 450 360 M 600 0 L 600 360 M 750 0 L 750 360 M 900 0 L 900 360 M 1050 0 L 1050 360" stroke="#58a6ff" stroke-width="1"/>
+  </g>
+
+  <!-- Animated Data Flow Curves (Background Dynamic Aspect) -->
+  <path class="animated-wave" d="M -50 280 Q 300 150 600 280 T 1250 200" fill="none" stroke="#bc8cff" stroke-width="3" opacity="0.5"/>
+  <path class="animated-flow" d="M -50 300 Q 300 180 600 300 T 1250 220" fill="none" stroke="#3fb950" stroke-width="2" opacity="0.7"/>
+
+  <!-- Decorative Pills / Badges in Top Right -->
+  <g transform="translate(850, 40)">
+    <rect width="140" height="32" rx="16" fill="#21262d" stroke="#30363d"/>
+    <circle cx="20" cy="16" r="6" fill="#3fb950"/>
+    <text x="36" y="21" class="badge-text">CI/CD Diffing</text>
+  </g>
+  <g transform="translate(1005, 40)">
+    <rect width="155" height="32" rx="16" fill="#21262d" stroke="#30363d"/>
+    <circle cx="20" cy="16" r="6" fill="#58a6ff"/>
+    <text x="36" y="21" class="badge-text">Data Quality</text>
+  </g>
+
+  <!-- Visual Dynamic Graph Element (Bottom Right - Clear of Main Title) -->
+  <g transform="translate(820, 160)">
+    <rect width="340" height="150" rx="12" fill="url(#card-grad)" stroke="#30363d"/>
+    <!-- Diff Comparison Graphic -->
+    <text x="20" y="30" font-family="sans-serif" font-size="12" font-weight="bold" fill="#8b949e">DATASET DIFF VISUALIZER</text>
+    
+    <!-- Source A -->
+    <rect x="20" y="48" width="130" height="36" rx="6" fill="#161b22" stroke="#f85149" stroke-width="1.5"/>
+    <text x="30" y="70" font-family="monospace" font-size="11" fill="#f85149">Prod: 1,420,500</text>
+    
+    <!-- Source B -->
+    <rect x="190" y="48" width="130" height="36" rx="6" fill="#161b22" stroke="#3fb950" stroke-width="1.5"/>
+    <text x="200" y="70" font-family="monospace" font-size="11" fill="#3fb950">PR: 1,420,542</text>
+    
+    <!-- Connecting Flow -->
+    <path d="M 150 66 L 190 66" stroke="#58a6ff" stroke-width="2" class="animated-flow"/>
+    
+    <!-- Status Pill -->
+    <rect x="20" y="100" width="300" height="30" rx="6" fill="#1f6feb" opacity="0.2"/>
+    <text x="30" y="120" font-family="sans-serif" font-size="12" fill="#58a6ff">⚡ 42 Rows Added | 0 Schema Drift Regressions</text>
+  </g>
+
+  <!-- Main Title and Subtitle Foreground (High Contrast & Clear) -->
+  <g transform="translate(60, 110)">
+    <!-- Main Title -->
+    <text x="0" y="0" class="title" filter="url(#glow)">Awesome Data Diff &amp;</text>
+    <text x="0" y="50" class="title" filter="url(#glow)">Regression Testing ⚡</text>
+    
+    <!-- Subtitle -->
+    <text x="0" y="100" class="subtitle">The Ultimate Ecosystem Guide for Data Diffing, CI Validation,</text>
+    <text x="0" y="128" class="subtitle">Schema Drift Detection &amp; Pipeline Regression Prevention</text>
+
+    <!-- Category Tag Badges -->
+    <g transform="translate(0, 160)">
+      <rect width="130" height="28" rx="6" fill="#21262d" stroke="#58a6ff" stroke-width="1"/>
+      <text x="12" y="18" font-family="sans-serif" font-size="12" fill="#58a6ff" font-weight="bold">📊 SaaS Tools</text>
+
+      <rect x="140" y="0" width="170" height="28" rx="6" fill="#21262d" stroke="#bc8cff" stroke-width="1"/>
+      <text x="152" y="18" font-family="sans-serif" font-size="12" fill="#bc8cff" font-weight="bold">🔓 Open-Source Repos</text>
+
+      <rect x="320" y="0" width="160" height="28" rx="6" fill="#21262d" stroke="#3fb950" stroke-width="1"/>
+      <text x="332" y="18" font-family="sans-serif" font-size="12" fill="#3fb950" font-weight="bold">🛡️ CI/CD Pipelines</text>
+    </g>
+  </g>
+
+</svg>
